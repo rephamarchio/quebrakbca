@@ -1,10 +1,10 @@
 (function(){
 
 	var tiles = [],
-	anwer =[];
+	answer = [];
 	var startScreen = document.querySelector("#startScreen");
 		startScreen.addEventListener("click",startGame,false);
-	var overScreem = document.querySelector("#overScreem");
+	var overScreen= document.querySelector("#overScreen");
 
 	function init() {
 
@@ -16,7 +16,7 @@
 		}
 
 		tiles.push(null);
-		anwer = tiles;
+		answer = tiles;
 
 		render();
 	}
@@ -71,10 +71,10 @@
 		}
 	}
 
-	function chkwin(){
+	function chkWin(){
 		for(var i in tiles){
 			var a = tiles[i];
-			var b = anwer[i];
+			var b = answer[i];
 			if(a !==b ){
 				return false;
 			}
@@ -83,10 +83,10 @@
 	}
 
 	function gameOver(){
-		overScreem.style.opacity = "1";
-		overScreem.style.zIndex = "1";
+		overScreen.style.opacity = "1";
+		overScreen.style.zIndex = "1";
 		setTimeout(function(){
-			overScreem.addEventListener("click",startGame,false);
+			overScreen.addEventListener("click",startGame,false);
 		},500);
 	}
 
