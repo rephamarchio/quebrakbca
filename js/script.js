@@ -5,10 +5,12 @@
 		startScreen.addEventListener("click",startGame,false);
 
 	function init() {
+
 		for (var i = 1; i < 9 ; i++) {
 			var tile =document.querySelector("#n"+i);
 			tile.style.background = "url('img/n"+i+".png')";
 			tiles.push(tile);
+			tile.addEventListener("click",moveTile,false);
 		}
 
 		tiles.push(null);
@@ -31,6 +33,35 @@
 				}
 			}
 		}
+	}
+
+	function moveTile(){
+		var index = tiles.indexOf(this);
+		if(index % 3 !==0){
+			if(!tiles[index-1]){
+				tiles[index-1] = this;
+				tiles[index] = null;
+			}
+		}
+		if(index % 3 !==2){
+			if(!tiles[index+1]){
+				tiles[index+1] = this;
+				tiles[index] = null;
+			}
+		}
+		if(index > 2){
+			if(!tiles[index-3]){
+				tiles[index-3] = this;
+				tiles[index] = null;
+			}
+		}
+		if(index < 5){
+			if(!tiles[index+3]){
+				tiles[index+3] = this;
+				tiles[index] = null;
+			}
+		}
+		render();
 	}
 
 	function radomSort(oldArray){
@@ -66,7 +97,7 @@
 	function startGame(){
 	 	tiles = radomSort(tiles);
 		this.style.opacity = "0";
-		this.zIndex = "-1";
+		this.style.zIndex = "-1";
 		this.removeEventListener("click",startGame,false);
 		render();
 	}
