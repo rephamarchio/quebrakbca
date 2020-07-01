@@ -55,7 +55,7 @@
 				tiles[index] = null;
 			}
 		}
-		if(index < 5){
+		if(index < 6){
 			if(!tiles[index+3]){
 				tiles[index+3] = this;
 				tiles[index] = null;
