@@ -26,6 +26,14 @@ body{
 	z-index: 1;
 }
 
+#overScreen{
+	background: url('../img/win.png');
+	opacity: 0;
+	z-index: -1;
+}
+
+
+
 #container{
 	position: relative;
 	margin:50px auto;
